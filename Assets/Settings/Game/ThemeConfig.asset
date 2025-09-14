@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0755f0509d796448d244454beb6f53, type: 3}
+  m_Name: ThemeConfig
+  m_EditorClassIdentifier: 
+  NoteThemes:
+  - NodeChar: 0
+    NoteTheme:
+      MainColor: {r: 0, g: 1, b: 0.9747646, a: 1}
+  - NodeChar: 1
+    NoteTheme:
+      MainColor: {r: 1, g: 0.95621943, b: 0, a: 1}
+  - NodeChar: 2
+    NoteTheme:
+      MainColor: {r: 0.58017635, g: 0, b: 1, a: 1}
+  - NodeChar: 3
+    NoteTheme:
+      MainColor: {r: 1, g: 0.45545834, b: 0, a: 1}
+  - NodeChar: 4
+    NoteTheme:
+      MainColor: {r: 0.31235123, g: 1, b: 0, a: 1}
+  - NodeChar: 5
+    NoteTheme:
+      MainColor: {r: 1, g: 0, b: 0.272974, a: 1}
+  - NodeChar: 6
+    NoteTheme:
+      MainColor: {r: 0.26606274, g: 0, b: 1, a: 1}
