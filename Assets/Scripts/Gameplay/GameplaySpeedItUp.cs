@@ -18,46 +18,32 @@ namespace Core
 			_currentStreak           =  0;
 			GameEvents.OnNoteCorrect += OnNoteCorrect;
 			GameEvents.OnNoteMiss    += OnNoteMiss;
+			GameEvents.RequestMusic(false);
 			
 			GenerateLookingForNote();
 		}
 
+		public override void LessonEnd()
+		{
+			GameEvents.OnNoteCorrect -= OnNoteCorrect;
+			GameEvents.OnNoteMiss    -= OnNoteMiss;
+		}
+		
 		public override void Update(float deltaTime)
 		{
 			base.Update(deltaTime);
-			
 		}
-		
+
 		void OnNoteCorrect(int index, NoteData note)
 		{
-			if (_currentStreak < 0)
-			{
-				_currentStreak = 1;
-			}
-			else
-			{
-				_currentStreak++;
-				if (_currentStreak >= _modeConfig.SuccessStreak)
-				{
-					GameEvents.RequestSetOffsetBPM?.Invoke(_modeConfig.BPMChange * Mathf.FloorToInt(_currentStreak / _modeConfig.SuccessStreak));
-				}
-			}
+			_currentStreak++;
+			GameEvents.RequestSetOffsetBPM?.Invoke(_modeConfig.BPMChange * Mathf.FloorToInt(_currentStreak / _modeConfig.SuccessStreak));
 		}
-		
+
 		void OnNoteMiss(int index, NoteData note)
 		{
-			if (_currentStreak >= 0)
-			{
-				_currentStreak = -1;
-			}
-			else
-			{
-				_currentStreak--;
-				if (_currentStreak <= -_modeConfig.FailStreak)
-				{
-					GameEvents.RequestSetOffsetBPM?.Invoke(-_modeConfig.BPMChange * Mathf.FloorToInt(-_currentStreak / _modeConfig.FailStreak));
-				}
-			}
+			_currentStreak--;
+			GameEvents.RequestSetOffsetBPM?.Invoke(-_modeConfig.BPMChange * Mathf.FloorToInt(-_currentStreak / _modeConfig.FailStreak));
 		}
 	}
 	

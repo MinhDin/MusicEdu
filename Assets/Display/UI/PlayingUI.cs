@@ -15,7 +15,7 @@ namespace Core
 		{
 			if (Lesson == null) return;
 			
-			BPMText.text = $"BPM : {Lesson.TotalBPM}";
+			BPMText.text = $"BPM : {Lesson.CurrentBPM}";
 		}
 	}
 }

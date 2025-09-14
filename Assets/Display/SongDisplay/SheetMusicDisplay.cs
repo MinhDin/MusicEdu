@@ -12,6 +12,7 @@ namespace Core
 		public GameObject       Bird;
 		public Transform        SheetPivot;
 		public float            SheetYOffset = 0.2f;
+		public AudioSource      MusicSource;
 		
 		public float                  CurrentTime { get; private set; }
 		public MusicNoteDisplay       CurrentNote { get; private set; }
@@ -21,6 +22,8 @@ namespace Core
 		List<GameObject>             _separators = new();
 		ObjectPool<MusicNoteDisplay> _notePool;
 		ObjectPool<GameObject>       _separatorPool;
+		SongData                     _songData;
+		float                        _octave;
 		
 		void Awake()
 		{
@@ -39,7 +42,7 @@ namespace Core
 			);
 		}
 
-		public void LoadSong(SongData songData, int octave = 3)
+		public void LoadSong(SongData songData, int octave = 4)
 		{
 			foreach (var note in _notes)
 			{
@@ -53,12 +56,14 @@ namespace Core
 			
 			_notes.Clear();
 			_separators.Clear();
-
+		
+			_octave = octave;
+			_songData = songData;
+			MusicSource.clip = songData.Music;
 			var minNote = octave * Note.NumberOfNote + 1 + 2; // +2 because start with C
-
 			float duration      = 0;
 			float totalDuration = 0;
-			float seperatorPos  = 1;
+			
 			
 			for (var i = 0; i < songData.Notes.Count; i++)
 			{
@@ -71,16 +76,32 @@ namespace Core
 
 				totalDuration += noteData.Duration;
 				duration      += noteData.Duration;
-				
-				if(duration >= 1.0f)
-				{
-					var separator = _separatorPool.Get();
-					separator.transform.localPosition = new Vector3(seperatorPos, 0, 0);
-					_separators.Add(separator);
-					duration -= 1.0f;
-					seperatorPos++;
-				}
 			}
+
+			var totalSeperator = Mathf.FloorToInt(totalDuration);
+			var seperatorPos   = 1.0f;
+			for (var i = 0; i < totalSeperator; i++)
+			{
+				var separator = _separatorPool.Get();
+				separator.transform.localPosition = new Vector3(seperatorPos, 0, 0);
+				_separators.Add(separator);
+				seperatorPos++;
+			}
+		}
+
+		public void StartSong()
+		{
+			MusicSource.Play();
+		}
+
+		public void EndSong()
+		{
+			MusicSource.Stop();
+		}
+		
+		public void UpdateBPM(float bpm)
+		{
+			MusicSource.pitch = bpm / _songData.MusicBPM;	
 		}
 		
 		public void UpdateSong(float noteAmount)
@@ -99,7 +120,7 @@ namespace Core
 			if (input != null && input.Count > 0)
 			{
 				var (_, noteData) = input[0];
-				var minNote = 3 * Note.NumberOfNote + 1 + 2;
+				var minNote = _octave * Note.NumberOfNote + 1 + 2;
 				var y = (noteData.BaseId - minNote) * SheetYOffset;
 				Bird.transform.localPosition = new Vector3(Bird.transform.localPosition.x, y, Bird.transform.localPosition.z);
 			}

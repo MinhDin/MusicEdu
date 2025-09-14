@@ -44,6 +44,7 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: 1707289987784240347}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
@@ -98,10 +99,22 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: NormalMusic
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: d7a57a61d61239541a8e3c3d9166794e
   m_FloatValues: {}
+  m_TransitionOverrides: {}
+--- !u!245 &1707289987784240347
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FadeMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 5624dab095ec9334e971425adc65819f
+  m_FloatValues:
+    de5902284001a114e8f7245de1275c32: -39.703533
   m_TransitionOverrides: {}
 --- !u!244 &8726324349057370081
 AudioMixerEffectController:

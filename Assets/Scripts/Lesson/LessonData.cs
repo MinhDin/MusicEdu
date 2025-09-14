@@ -7,6 +7,7 @@ namespace Core
 	[System.Serializable]
 	public class LessonData
 	{
+		public string  LessonName;
 		public string  SongId;
 		public string  GameplayMode;
 		public JObject ModeConfig;

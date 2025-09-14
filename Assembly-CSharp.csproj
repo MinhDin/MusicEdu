@@ -47,10 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Configs\SongData.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameplayPerformTheSong.cs" />
     <Compile Include="Assets\Scripts\Managers\GameCamera.cs" />
     <Compile Include="Assets\Display\SongDisplay\MusicNoteDisplay.cs" />
     <Compile Include="Assets\Scripts\Managers\ThemeManager.cs" />
     <Compile Include="Assets\Display\UI\PlayingUI.cs" />
+    <Compile Include="Assets\Display\UI\MenuUI.cs" />
     <Compile Include="Assets\Display\LessonDisplayBase.cs" />
     <Compile Include="Assets\Scripts\Music\Note.cs" />
     <Compile Include="Assets\Scripts\Managers\GameEvents.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Assets\Scripts\Managers\DisplayManager.cs" />
     <Compile Include="Assets\Display\SongDisplay\SheetMusicDisplay.cs" />
     <Compile Include="Assets\Scripts\Lesson\LessonData.cs" />
+    <Compile Include="Assets\Display\UI\SongButtonUI.cs" />
     <Compile Include="Assets\Scripts\Managers\SongManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MainGame.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameplayBase.cs" />
@@ -78,6 +81,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />
+    <None Include="Assets\ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -86,7 +90,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Settings\Lesson\Lesson1.txt" />
+    <None Include="Assets\Settings\Lesson\Lessons.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

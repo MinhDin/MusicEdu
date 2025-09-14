@@ -13,30 +13,28 @@ namespace Core
 		}
 		
 		public float TotalBPM => (_lessonData?.BPM ?? 150) + _offsetBPM;
+		public float CurrentBPM => _currentBPM;
 		
 		LessonData        _lessonData;
 		GameplayBase      _gameplay;
 		State             _currentState;
 		SheetMusicDisplay _sheet;
 		float             _offsetBPM;
-		
-		public void LoadLesson(string json)
-		{
-			var lessonData = JsonUtility.FromJson<LessonData>(json);
-			LoadLesson(lessonData);
-		}
+		float             _currentBPM;
+		float             _currentBPMVec;
 		
 		public void LoadLesson(LessonData lessonData)
 		{
 			GameEvents.RequestSetOffsetBPM = bpm => _offsetBPM = bpm;
 			_lessonData                    = lessonData;
-			
+			_offsetBPM                     = 0;
 			// Song
 			var song = GameEvents.GetSong?.Invoke(_lessonData.SongId);
 			// Mode
 			switch (_lessonData.GameplayMode)
 			{
 				case "SpeedItUp": _gameplay = new GameplaySpeedItUp(); break;
+				case "Perform":   _gameplay = new GameplayPerformTheSong(); break;
 				default:          return;
 			}
 			// Input
@@ -58,7 +56,7 @@ namespace Core
 			input.LoadRange(lessonData.StartInputNote, lessonData.EndInputNote);
 			_sheet.LoadSong(song);
 			_currentState = State.Pause;
-			
+			_currentBPM = lessonData.BPM;
 			_gameplay.InitLesson(lessonData.ModeConfig, song, config);
 		}
 
@@ -67,8 +65,10 @@ namespace Core
 			var input = GameEvents.GetCurrentPlayNotes?.Invoke();
 			if (input == null) return;
 
+			_currentBPM = Mathf.SmoothDamp(_currentBPM, TotalBPM, ref _currentBPMVec, 0.3f);
+			_sheet.UpdateBPM(_currentBPM);
 			// 1 note move equal a full note
-			var noteTime = (_lessonData.BPM + _offsetBPM) / 60.0f * Time.deltaTime;
+			var noteTime = _currentBPM / 60.0f * Time.deltaTime;
 			
 			if (_currentState == State.Playing)
 			{
@@ -80,8 +80,16 @@ namespace Core
 				if (input.Count > 0)
 				{
 					_currentState = State.Playing;
+					_sheet.StartSong();
+					GameEvents.OnLessonStart?.Invoke();
 				}
 			}
+		}
+
+		public void LessonEnd()
+		{
+			_sheet?.EndSong();
+			_gameplay?.LessonEnd();
 		}
 	}
 	

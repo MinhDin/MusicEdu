@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -18,9 +19,11 @@ namespace Core
 		
 		// UI
 		public PlayingUI PlayingUI;
-		
-		Lesson _currentLesson;
-		string _downloadedConfig;
+		public MenuUI    MenuUI;
+
+		List<LessonData> _allLesson;
+		Lesson           _currentLesson;
+		string           _downloadedConfig;
 
 		public enum State
 		{
@@ -35,6 +38,7 @@ namespace Core
 			Input.multiTouchEnabled     = false;
 			GameEvents.GetGeneralConfig = () => GeneralConfig;
 			GameEvents.RequestEndLesson = EndLesson;
+			GameEvents.UIRequestStartLesson = StartLesson;
 			
 			GameCamera.Init();
 			SoundInstrumentManager.Init();
@@ -50,18 +54,22 @@ namespace Core
 			
 			yield return StartCoroutine(DownloadConfigCoroutine());
 
-			//var config = JsonUtility.FromJson<LessonData>(_downloadedConfig);
 			//_currentLesson.LoadLesson(config);
-			_state = State.Menu;
+			var json = string.IsNullOrEmpty(_downloadedConfig) ? LessonData.text : _downloadedConfig;
+			_allLesson = Newtonsoft.Json.JsonConvert.DeserializeObject<List<LessonData>>(json);
 			
-			StartCoroutine(StartLesson());
+			_state = State.Menu;
+			MenuUI.gameObject.SetActive(true);
+			PlayingUI.gameObject.SetActive(false);
+			MenuUI.SetData(_allLesson);
 		}
 
-		private IEnumerator StartLesson()
+		private void StartLesson(LessonData config)
 		{
-			yield return null;
-			_currentLesson.LoadLesson(LessonData.text);
+			_currentLesson.LoadLesson(config);
 			_state = State.Lesson;
+			MenuUI.gameObject.SetActive(false);
+			PlayingUI.gameObject.SetActive(true);
 		}
 		
 		private IEnumerator DownloadConfigCoroutine()
@@ -81,7 +89,6 @@ namespace Core
 					Debug.LogError($"Config download failed: {webRequest.error}");
 				}
 			}
-			
 		}
 
 		void Update()
@@ -95,6 +102,9 @@ namespace Core
 		{
 			Debug.Log($"Lesson Result: {JsonUtility.ToJson(result)}");
 			_state = State.Menu;
+			_currentLesson?.LessonEnd();
+			MenuUI.gameObject.SetActive(true);
+			PlayingUI.gameObject.SetActive(false);
 		}
 	}
 }

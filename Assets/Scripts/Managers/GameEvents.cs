@@ -18,12 +18,16 @@ namespace Core
 		public static Action<string>       RequestLoadAudioInstrument;
 		public static Action<float>        RequestSetOffsetBPM;
 		public static Action<LessonResult> RequestEndLesson;
-		
+		public static Action<bool>         RequestMusic;         // Is active music
+		public static Action<LessonData>   UIRequestStartLesson;
+
 		// Input from user
 		public static Func<List<(float, NoteData)>> GetCurrentPlayNotes;     // Time
 		public static Action<int>                   RequestConsumePlayNotes; // Index
 		public static Action<int, NoteData>         OnNoteCorrect;           // Index, data
 		public static Action<int, NoteData>         OnNoteMiss;              // Index, data
-		
+
+		public static Action OnLessonStart;
+		public static Action OnLessonEnd;
 	}
 }

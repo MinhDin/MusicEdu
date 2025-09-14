@@ -79,7 +79,6 @@ namespace Core
 			CurrentState = KeyState.Down;
 			RefreshDisplay();
 			AudioSource.Play();
-			Debug.Log($"Play note {Data.Note.BaseId}");
 			OnPlayNote?.Invoke(this);	
 		}
 

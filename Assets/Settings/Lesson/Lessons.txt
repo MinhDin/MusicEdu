@@ -1,0 +1,36 @@
+[
+{
+  "LessonName":"Speed Ode To Joy",
+  "SongId": "OdeToJoy",
+  "GameplayMode": "SpeedItUp",
+  "SheetMode": "BasicSheet",
+  "ModeConfig":  
+    {
+        "BPMChange" : 10,
+        "SuccessStreak" : 4,
+        "FailStreak" : 3,
+    },
+  "InputMode": "Piano",
+  "Instrument": "ClassicPiano",
+  "HitWindow": 0.25,
+  "BPM": 80,
+  "StartInputNote": 29,
+  "EndInputNote": 35
+},
+{
+  "LessonName":"Perform Ode To Joy",
+  "SongId": "OdeToJoyRest",
+  "GameplayMode": "Perform",
+  "SheetMode": "BasicSheet",
+  "ModeConfig":  
+    {
+        "Streak" : 3
+    },
+  "InputMode": "Piano",
+  "Instrument": "ClassicPiano",
+  "HitWindow": 0.25,
+  "BPM": 100,
+  "StartInputNote": 29,
+  "EndInputNote": 35
+}
+]

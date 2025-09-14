@@ -21,6 +21,11 @@ namespace Core
             _result = new();
         }
 
+        public virtual void LessonEnd()
+        {
+            
+        }
+        
         public virtual void GenerateLookingForNote()
         {
             _totalSongLength = 0;
