@@ -15,22 +15,25 @@ MonoBehaviour:
   NoteThemes:
   - NodeChar: 0
     NoteTheme:
-      MainColor: {r: 0, g: 1, b: 0.9747646, a: 1}
+      MainColor: {r: 0.5934051, g: 0.990566, b: 0.981221, a: 1}
   - NodeChar: 1
     NoteTheme:
-      MainColor: {r: 1, g: 0.95621943, b: 0, a: 1}
+      MainColor: {r: 0.9245283, g: 0.5189569, b: 0.9213474, a: 1}
   - NodeChar: 2
     NoteTheme:
-      MainColor: {r: 0.58017635, g: 0, b: 1, a: 1}
+      MainColor: {r: 0.74726504, g: 0.46293166, b: 0.9528302, a: 1}
   - NodeChar: 3
     NoteTheme:
-      MainColor: {r: 1, g: 0.45545834, b: 0, a: 1}
+      MainColor: {r: 1, g: 0.67859787, b: 0.41037738, a: 1}
   - NodeChar: 4
     NoteTheme:
-      MainColor: {r: 0.31235123, g: 1, b: 0, a: 1}
+      MainColor: {r: 0.60183126, g: 1, b: 0.4198113, a: 1}
   - NodeChar: 5
     NoteTheme:
-      MainColor: {r: 1, g: 0, b: 0.272974, a: 1}
+      MainColor: {r: 0.9716981, g: 0.3987629, b: 0.55603933, a: 1}
   - NodeChar: 6
     NoteTheme:
-      MainColor: {r: 0.26606274, g: 0, b: 1, a: 1}
+      MainColor: {r: 0.59528315, g: 0.4481132, b: 1, a: 1}
+  - NodeChar: 7
+    NoteTheme:
+      MainColor: {r: 0.4481132, g: 0.9740289, b: 1, a: 1}

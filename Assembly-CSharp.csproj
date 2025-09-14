@@ -47,14 +47,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Configs\SongData.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameCamera.cs" />
+    <Compile Include="Assets\Display\SongDisplay\MusicNoteDisplay.cs" />
     <Compile Include="Assets\Scripts\Managers\ThemeManager.cs" />
-    <Compile Include="Assets\InputModules\PianoInput\Scripts\PianoKey.cs" />
+    <Compile Include="Assets\Display\LessonDisplayBase.cs" />
     <Compile Include="Assets\Scripts\Music\Note.cs" />
     <Compile Include="Assets\Scripts\Managers\GameEvents.cs" />
+    <Compile Include="Assets\Scripts\InputInstrument\InputInstrumentBase.cs" />
+    <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Configs\ThemeConfig.cs" />
     <Compile Include="Assets\Scripts\Music\Song.cs" />
+    <Compile Include="Assets\Scripts\Lesson\Lesson.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameplaySpeedItUp.cs" />
+    <Compile Include="Assets\Scripts\Managers\DisplayManager.cs" />
+    <Compile Include="Assets\Display\SongDisplay\SheetMusicDisplay.cs" />
+    <Compile Include="Assets\Scripts\Lesson\LessonData.cs" />
     <Compile Include="Assets\Scripts\Managers\SongManager.cs" />
     <Compile Include="Assets\Scripts\Managers\MainGame.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\GameplayBase.cs" />
+    <Compile Include="Assets\Display\PianoInput\Scripts\PianoKey.cs" />
+    <Compile Include="Assets\Scripts\Configs\InstrumentConfig.cs" />
+    <Compile Include="Assets\Scripts\Managers\SoundInstrumentManager.cs" />
+    <Compile Include="Assets\Scripts\Configs\GeneralConfig.cs" />
+    <Compile Include="Assets\Display\PianoInput\Scripts\PianoDisplay.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
@@ -71,6 +86,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\Settings\Lesson\Lesson1.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

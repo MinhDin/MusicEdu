@@ -1,0 +1,12 @@
+{
+  "SongId": "OdeToJoy",
+  "GameplayMode": "SpeedItUp",
+  "SheetMode": "BasicSheet",
+  "ModeConfig":  {  },
+  "InputMode": "Piano",
+  "Instrument": "ClassicPiano",
+  "HitWindow": 0.25,
+  "BPM": 150,
+  "StartInputNote": 31,
+  "EndInputNote": 37
+}

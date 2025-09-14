@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Core;
 
-namespace PathHeroes
+namespace Core
 {
 	[System.Serializable]
 	public class SongData

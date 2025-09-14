@@ -6,7 +6,7 @@ namespace Core
 	{
 		public static int NumberOfNote = 7;
 		
-		public static string ToText(this NoteData note) => $"{note.BaseId.ToString()}{(note.Acc == Accidentals.Natural ? string.Empty : note.Acc.ToString())}";
+		public static string ToText(this NoteData note) => $"{note.BaseId.ToText()}{(note.Acc == Accidentals.Natural ? string.Empty : note.Acc.ToText())}";
 
 		public static NoteChar ToNoteChar(this int baseNoteId) =>
 			baseNoteId <= 0 
@@ -50,7 +50,7 @@ namespace Core
 	[System.Serializable]
 	public struct NoteData
 	{
-		public int         BaseId; // A1 = 1, A4 = 28
+		public int         BaseId; // A1=1,B1=2,A3=22,E3=26,A4=29,B4=30
 		public Accidentals Acc;
 		public float       Duration; // 1 = whole note
 	}
