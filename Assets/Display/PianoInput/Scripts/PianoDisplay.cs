@@ -12,7 +12,7 @@ namespace Core
 		public float     KeySize = 1.25f;
 
 		List<PianoKey> _keys = new();
-		List<(float time, NoteData note)> _currentPlayNotes;
+		List<(float time, NoteData note)> _currentPlayNotes = new();
 		GeneralConfig  _config;
 		
 		void OnEnable()

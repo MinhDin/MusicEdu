@@ -9,6 +9,7 @@ namespace Core
 	{
 		public MusicNoteDisplay NotePrefab;
 		public GameObject       SeparatorPrefab;
+		public GameObject       Bird;
 		public Transform        SheetPivot;
 		public float            SheetYOffset = 0.2f;
 		
@@ -55,14 +56,15 @@ namespace Core
 
 			var minNote = octave * Note.NumberOfNote + 1 + 2; // +2 because start with C
 
-			float duration = 0;
+			float duration      = 0;
 			float totalDuration = 0;
-			float seperatorPos = 1;
+			float seperatorPos  = 1;
+			
 			for (var i = 0; i < songData.Notes.Count; i++)
 			{
 				var noteData    = songData.Notes[i];
 				var noteDisplay = _notePool.Get();
-				noteDisplay.SetNote(noteData);
+				noteDisplay.SetNote(noteData, i);
 				var y = (noteData.BaseId - minNote) * SheetYOffset;
 				noteDisplay.transform.localPosition = new Vector3(totalDuration, y, -1);
 				_notes.Add(noteDisplay);
@@ -86,6 +88,20 @@ namespace Core
 			foreach (var note in _notes)
 			{
 				note.transform.Translate(Vector3.left * noteAmount);
+			}
+
+			foreach (var seperator in _separators)
+			{
+				seperator.transform.Translate(Vector3.left * noteAmount);
+			}
+			
+			var input = GameEvents.GetCurrentPlayNotes();
+			if (input != null && input.Count > 0)
+			{
+				var (_, noteData) = input[0];
+				var minNote = 3 * Note.NumberOfNote + 1 + 2;
+				var y = (noteData.BaseId - minNote) * SheetYOffset;
+				Bird.transform.localPosition = new Vector3(Bird.transform.localPosition.x, y, Bird.transform.localPosition.z);
 			}
 		}
 

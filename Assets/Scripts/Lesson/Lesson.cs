@@ -12,6 +12,8 @@ namespace Core
 			Playing,
 		}
 		
+		public float TotalBPM => (_lessonData?.BPM ?? 150) + _offsetBPM;
+		
 		LessonData        _lessonData;
 		GameplayBase      _gameplay;
 		State             _currentState;
@@ -57,7 +59,7 @@ namespace Core
 			_sheet.LoadSong(song);
 			_currentState = State.Pause;
 			
-			_gameplay.InitLesson(song, config);
+			_gameplay.InitLesson(lessonData.ModeConfig, song, config);
 		}
 
 		public void Update(float deltaTime)
@@ -66,7 +68,7 @@ namespace Core
 			if (input == null) return;
 
 			// 1 note move equal a full note
-			var noteTime = 60.0f / (_lessonData.BPM + _offsetBPM);
+			var noteTime = (_lessonData.BPM + _offsetBPM) / 60.0f * Time.deltaTime;
 			
 			if (_currentState == State.Playing)
 			{

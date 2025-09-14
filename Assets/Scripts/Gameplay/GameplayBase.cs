@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace Core
 {
@@ -12,32 +12,35 @@ namespace Core
         protected List<LookingForNote> _lookingForNotes = new();
         protected float                _currentNoteTime;
         protected LessonResult         _result;
+        protected float                _totalSongLength;
         
-        public virtual void InitLesson(JsonObject modeConfig, SongData song, GeneralConfig config)
+        public virtual void InitLesson(JObject modeConfig, SongData song, GeneralConfig config)
         {
             _song   = song;
             _config = config;
-            GenerateLookingForNote();
+            _result = new();
         }
 
         public virtual void GenerateLookingForNote()
         {
-            float totalTime = 0;
-            foreach (var note in _song.Notes)
+            _totalSongLength = 0;
+            for (var i = 0; i < _song.Notes.Count; i++)
             {
+                var note = _song.Notes[i];
                 // Dont looking for rest
                 if (note.BaseId > 0)
                 {
                     var lookingForNote = new LookingForNote
                                          {
                                              Note     = note,
-                                             FromTime = totalTime - _config.HitWindow                 / 2,
-                                             ToTime   = totalTime + note.Duration + _config.HitWindow / 2,
+                                             FromTime = _totalSongLength - _config.HitWindow                 / 2,
+                                             ToTime   = _totalSongLength + note.Duration + _config.HitWindow / 2,
+                                             Index    = i,
                                          };
                     _lookingForNotes.Add(lookingForNote);
                 }
 
-                totalTime += note.Duration;
+                _totalSongLength += note.Duration;
             }
         }
 
@@ -63,21 +66,22 @@ namespace Core
                     _result.note_hit++;
                     _lookingForNotes.RemoveAt(i);
                     GameEvents.RequestConsumePlayNotes?.Invoke(index);
-                    GameEvents.OnNoteCorrect?.Invoke(note.Note);
+                    GameEvents.OnNoteCorrect?.Invoke(note.Index, note.Note);
                 }
             }
 
-            if (_lookingForNotes.Count == 0)
+            if (_currentNoteTime >= _totalSongLength)
             {
+                _result.song_end = true;
                 GameEvents.RequestEndLesson?.Invoke(_result);
             }
-            else
+            else if(_lookingForNotes.Count > 0)
             {
                 var note = _lookingForNotes[0];
                 if (_currentNoteTime > note.ToTime)
                 {
                     _result.note_miss++;
-                    GameEvents.OnNoteMiss?.Invoke(note.Note);
+                    GameEvents.OnNoteMiss?.Invoke(note.Index, note.Note);
                     _lookingForNotes.RemoveAt(0);
                 }
             }
@@ -89,7 +93,6 @@ namespace Core
         public NoteData Note;
         public float    FromTime;
         public float    ToTime;
-        public int      HitCount;
-        public int      FalseHitCount;
+        public int      Index;
     }
 }

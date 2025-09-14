@@ -66,21 +66,37 @@ namespace Core
 			{
 				Notes = new List<NoteData>
 				{
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 25, Acc = Accidentals.Natural, Duration = 1.0f }, // D3
 					new NoteData { BaseId = 26, Acc = Accidentals.Natural, Duration = 1.0f }, // E3
 					new NoteData { BaseId = 26, Acc = Accidentals.Natural, Duration = 1.0f }, // E3
-					new NoteData { BaseId = 27, Acc = Accidentals.Natural, Duration = 1.0f }, // F3
-					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 1.0f }, // G3
-					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 1.0f }, // G3
-					new NoteData { BaseId = 27, Acc = Accidentals.Natural, Duration = 1.0f }, // F3
+					new NoteData { BaseId = 25, Acc = Accidentals.Natural, Duration = 1.0f }, // D3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 1.0f }, // B3
+					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 1.0f }, // A3
+					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 1.0f }, // A3
+					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 1.0f }, // B3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.5f }, // C3
+					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 0.5f }, // B3
+					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 2.0f }, // B3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 25, Acc = Accidentals.Natural, Duration = 1.0f }, // D3
 					new NoteData { BaseId = 26, Acc = Accidentals.Natural, Duration = 1.0f }, // E3
-					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // D3
-					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
-					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
-					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // D3
 					new NoteData { BaseId = 26, Acc = Accidentals.Natural, Duration = 1.0f }, // E3
-					new NoteData { BaseId = 26, Acc = Accidentals.Natural, Duration = 1.5f }, // E3
-					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 0.5f }, // D3
-					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 2.0f }, // D3
+					new NoteData { BaseId = 25, Acc = Accidentals.Natural, Duration = 1.0f }, // D3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 1.0f }, // B3
+					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 1.0f }, // A3
+					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 1.0f }, // A3
+					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 1.0f }, // B3
+					new NoteData { BaseId = 24, Acc = Accidentals.Natural, Duration = 1.0f }, // C3
+					new NoteData { BaseId = 23, Acc = Accidentals.Natural, Duration = 1.5f }, // B3
+					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 0.5f }, // A3
+					new NoteData { BaseId = 22, Acc = Accidentals.Natural, Duration = 2.0f }  // A3
+					
 				}
 			});
 		}

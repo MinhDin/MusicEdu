@@ -22,7 +22,8 @@ namespace Core
 		// Input from user
 		public static Func<List<(float, NoteData)>> GetCurrentPlayNotes;     // Time
 		public static Action<int>                   RequestConsumePlayNotes; // Index
-		public static Action<NoteData>              OnNoteCorrect;
-		public static Action<NoteData>              OnNoteMiss;
+		public static Action<int, NoteData>         OnNoteCorrect;           // Index, data
+		public static Action<int, NoteData>         OnNoteMiss;              // Index, data
+		
 	}
 }

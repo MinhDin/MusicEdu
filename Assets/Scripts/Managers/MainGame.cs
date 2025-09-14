@@ -14,8 +14,10 @@ namespace Core
 		public DisplayManager         DisplayManager;
 		public GeneralConfig          GeneralConfig;
 		public GameCamera             GameCamera;
-
 		public TextAsset LessonData;
+		
+		// UI
+		public PlayingUI PlayingUI;
 		
 		Lesson _currentLesson;
 		string _downloadedConfig;
@@ -44,7 +46,8 @@ namespace Core
 
 			yield return null;
 			_currentLesson = new Lesson();
-
+			PlayingUI.Lesson = _currentLesson;
+			
 			yield return StartCoroutine(DownloadConfigCoroutine());
 
 			//var config = JsonUtility.FromJson<LessonData>(_downloadedConfig);

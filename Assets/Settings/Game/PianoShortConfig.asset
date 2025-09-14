@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5b4b9253fbbb4f9f1e908c28985e4, type: 3}
+  m_Name: PianoShortConfig
+  m_EditorClassIdentifier: 
+  Notes:
+  - BaseNoteId: 22
+    Clip: {fileID: 8300000, guid: 879b3e9c5d9688a45b9d82c256dd6dbf, type: 3}
+  - BaseNoteId: 23
+    Clip: {fileID: 8300000, guid: 8e8e0fdecad6a1843b0588daba84bf66, type: 3}
+  - BaseNoteId: 24
+    Clip: {fileID: 8300000, guid: 232df2bf5e5a842478598c54fcab9eb5, type: 3}
+  - BaseNoteId: 25
+    Clip: {fileID: 8300000, guid: ffe1416cd1a134842bbd5384009b07bf, type: 3}
+  - BaseNoteId: 26
+    Clip: {fileID: 8300000, guid: a9b9f372f5e62ea479d4dfac62450e1c, type: 3}
+  - BaseNoteId: 27
+    Clip: {fileID: 8300000, guid: 489140dddc2d0cb4e80fc07f9346b1cc, type: 3}
+  - BaseNoteId: 28
+    Clip: {fileID: 8300000, guid: 8c7300d9b8a5d0d4cb38974abb1cdab6, type: 3}
+  - BaseNoteId: 29
+    Clip: {fileID: 8300000, guid: 64399ed54a98ab84fa04908394cf2f5f, type: 3}
+  - BaseNoteId: 30
+    Clip: {fileID: 8300000, guid: 481cfbb0b0101ff478a114554631026f, type: 3}
+  - BaseNoteId: 31
+    Clip: {fileID: 8300000, guid: 97b5c32b2c1e88a4c86f9fa2329f4182, type: 3}
+  - BaseNoteId: 32
+    Clip: {fileID: 8300000, guid: 69f852a7ed9089a47b7925c22c39ff43, type: 3}
+  - BaseNoteId: 33
+    Clip: {fileID: 8300000, guid: b3637b65adc44d8459132b9b3d621b11, type: 3}
+  - BaseNoteId: 34
+    Clip: {fileID: 8300000, guid: d9f9af8cead17d1469b5c16da290fcbb, type: 3}
+  - BaseNoteId: 35
+    Clip: {fileID: 8300000, guid: 38ca102b1d584b44ebc29c8f14687503, type: 3}
+  - BaseNoteId: 36
+    Clip: {fileID: 8300000, guid: 73414b56f95aeb64fa7dff7e1ef10272, type: 3}
+  - BaseNoteId: 37
+    Clip: {fileID: 8300000, guid: 11d97974f6f54aa48bfb1af985ab8ffd, type: 3}
