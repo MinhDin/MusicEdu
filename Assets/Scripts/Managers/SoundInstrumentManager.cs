@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Core
 {
+	/// <summary> Hold instrument sound </summary>
 	public class SoundInstrumentManager : MonoBehaviour
 	{
 		static string DefaultInstrument = "ClassicPiano";

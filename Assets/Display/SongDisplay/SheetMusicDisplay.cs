@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 namespace Core
 {
+	/// <summary> Show sheet music </summary>
 	public class SheetMusicDisplay : MonoBehaviour
 	{
 		public MusicNoteDisplay NotePrefab;
@@ -64,7 +65,7 @@ namespace Core
 			float duration      = 0;
 			float totalDuration = 0;
 			
-			
+			// Generate note
 			for (var i = 0; i < songData.Notes.Count; i++)
 			{
 				var noteData    = songData.Notes[i];
@@ -78,6 +79,7 @@ namespace Core
 				duration      += noteData.Duration;
 			}
 
+			// Generate seperator
 			var totalSeperator = Mathf.FloorToInt(totalDuration);
 			var seperatorPos   = 1.0f;
 			for (var i = 0; i < totalSeperator; i++)

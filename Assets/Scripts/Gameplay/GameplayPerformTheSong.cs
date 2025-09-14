@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace Core
 {
+	
+	/// <summary>
+	/// Gameplay mode that manages performance-based song playback where music playback is controlled by player accuracy.
+	/// Music plays when player maintains correct note streak and stops when missing notes.
+	/// </summary>
 	public class GameplayPerformTheSong : GameplayBase
 	{
 		int                  _currentStreak;
@@ -68,6 +73,10 @@ namespace Core
 		}
 	}
 	
+	/// <summary>
+	/// Configuration class for the PerformTheSong gameplay mode.
+	/// Contains settings that control the streak requirements for music playback.
+	/// </summary>
 	public class PerformTheSongConfig
 	{
 		public int Streak = 3;

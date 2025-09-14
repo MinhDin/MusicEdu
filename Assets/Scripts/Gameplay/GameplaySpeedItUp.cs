@@ -3,7 +3,11 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 
 namespace Core
-{
+{ 
+	/// <summary>
+	/// Gameplay mode that adjusts the song's BPM based on player performance.
+	/// Increases tempo when hitting correct notes in streak and decreases when missing notes.
+	/// </summary>
 	public class GameplaySpeedItUp : GameplayBase
 	{
 		protected int             _currentStreak;
@@ -47,6 +51,9 @@ namespace Core
 		}
 	}
 	
+	/// <summary>
+	/// Configuration parameters for SpeedItUp gameplay mode including BPM change rates and streak thresholds
+	/// </summary>
 	public class SpeedItUpConfig
 	{
 		public float BPMChange = 10;

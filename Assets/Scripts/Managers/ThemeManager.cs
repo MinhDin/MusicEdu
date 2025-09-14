@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Core
 {
+	// Only affect display like Color
 	public class ThemeManager : MonoBehaviour
 	{
 		public ThemeConfig DefaultThemeConfig;

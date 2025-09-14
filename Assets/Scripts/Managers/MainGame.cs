@@ -7,6 +7,12 @@ using UnityEngine.Networking;
 
 namespace Core
 {
+	/// <summary>
+	/// Main controller class that manages game state transitions between menu and lessons,
+	/// coordinates initialization of core game systems, and handles lesson loading/unloading.
+	/// Responsible for downloading and managing lesson configurations, and orchestrating
+	/// the communication between UI, gameplay systems and lesson management.
+	/// </summary>
 	public class MainGame : MonoBehaviour
 	{
 		public ThemeManager           ThemeManager;

@@ -5,6 +5,7 @@ using System;
 
 namespace Core
 {
+	/// <summary> Handle display part of the game </summary>
 	public class DisplayManager : MonoBehaviour
 	{
 		public PianoDisplay PianoDisplay;

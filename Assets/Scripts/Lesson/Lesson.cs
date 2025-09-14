@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Core
 {
+	/// <summary> Contain all lesson logic </summary>
 	public class Lesson
 	{
 		public enum State

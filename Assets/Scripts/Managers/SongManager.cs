@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 
 namespace Core
 {
+	/// <summary> Store songs </summary>
 	public class SongManager : MonoBehaviour
 	{
 		public AudioClip          OdeToJoyMusic;
