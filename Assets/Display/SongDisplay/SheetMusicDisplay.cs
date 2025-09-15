@@ -18,7 +18,7 @@ namespace Core
 		public float                  CurrentTime { get; private set; }
 		public MusicNoteDisplay       CurrentNote { get; private set; }
 		public List<MusicNoteDisplay> AllNotes => _notes;
-		
+		  
 		List<MusicNoteDisplay>       _notes      = new();
 		List<GameObject>             _separators = new();
 		ObjectPool<MusicNoteDisplay> _notePool;
